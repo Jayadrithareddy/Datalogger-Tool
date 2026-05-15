@@ -1,4 +1,4 @@
-# KRM Datalogger Dashboard
+# KRM Datalogger Dashboard UI
 
 A modern, industrial-grade React dashboard for real-time telemetry monitoring, data logging, and hardware communication. The UI is built entirely with Vanilla CSS and React, designed specifically for interacting with embedded systems (e.g., STM32 devices) over serial connections.
 
