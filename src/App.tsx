@@ -124,11 +124,6 @@ export default function App() {
     setOpenAccordions(prev => ({ ...prev, [key]: !prev[key] }));
   };
 
-  const deselectAll = () => {
-    setSelectedParams(new Set());
-    showNotification('info', 'All parameters deselected');
-  };
-
   const filterParams = (params: {id: string, label: string}[]) => {
     if (!searchQuery) return params;
     return params.filter(p => p.label.toLowerCase().includes(searchQuery.toLowerCase()));
@@ -333,10 +328,10 @@ export default function App() {
             <div className="bottom-actions">
               <button 
                 className="btn btn-secondary" 
-                onClick={deselectAll}
+                onClick={() => setSelectedParams(new Set())}
                 disabled={selectedParams.size === 0}
               >
-                Deselect
+                Deselect All
               </button>
               <button 
                 className="btn btn-primary" 
