@@ -546,16 +546,17 @@ h1, h2, h3, h4 { letter-spacing: -0.02em; }
   background-color: var(--accent-green);
   color: white;
   border-color: var(--accent-green);
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
 }
 .btn-control.active-start:hover:not(:disabled) { background-color: var(--accent-green-hover); }
 
 .btn-control.active-stop {
-  background-color: var(--danger-bg);
-  color: var(--danger-text);
-  border-color: transparent;
+  background-color: var(--danger-text);
+  color: white;
+  border-color: var(--danger-text);
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2);
 }
-.btn-control.active-stop:hover:not(:disabled) { background-color: rgba(239, 68, 68, 0.2); }
+.btn-control.active-stop:hover:not(:disabled) { background-color: #dc2626; }
 
 /* Status Box */
 .status-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px; }

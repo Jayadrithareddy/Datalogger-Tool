@@ -25,7 +25,7 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedParams, setSelectedParams] = useState<Set<string>>(new Set());
   const [notifications, setNotifications] = useState<{id: number, type: 'success' | 'error' | 'info', message: string}[]>([]);
-  const [isDarkTheme, setIsDarkTheme] = useState(true);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [openAccordions, setOpenAccordions] = useState({ alternator: true, engine: true });
   
   const toggleTheme = () => {
