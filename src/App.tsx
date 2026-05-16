@@ -65,7 +65,7 @@ export default function App() {
   const selectAllInCategory = (categoryParams: {id: string}[], event: React.MouseEvent) => {
     event.stopPropagation();
     const newSet = new Set(selectedParams);
-    let allSelected = categoryParams.every(p => newSet.has(p.id));
+    const allSelected = categoryParams.every(p => newSet.has(p.id));
     
     if (allSelected) {
       categoryParams.forEach(p => newSet.delete(p.id));
@@ -134,16 +134,6 @@ export default function App() {
   
   const hasNoResults = searchQuery && filteredAlternator.length === 0 && filteredEngine.length === 0;
 
-  const getStatusText = () => {
-    switch (appState) {
-      case 'DISCONNECTED': return 'Select a COM Port';
-      case 'SYNCING': return 'Syncing...';
-      case 'READY': return 'Ready';
-      case 'LOGGING': return 'Logging';
-      case 'RETRIEVING': return 'Retrieving Data...';
-      default: return '-';
-    }
-  };
 
   // Count active selections for summary
   const engineSelected = engineParams.filter(p => selectedParams.has(p.id)).length;
@@ -157,7 +147,7 @@ export default function App() {
           <div className="brand-logo">
             <div className="brand-name">
               <span className="brand-k">k</span>
-              <span style={{color: 'var(--text-primary)'}}>irloskar</span>
+              <span className="brand-text">irloskar</span>
             </div>
             <div className="brand-sub">electrical & electronics</div>
           </div>
@@ -185,12 +175,12 @@ export default function App() {
         <div className="left-column">
           {/* Notifications scoped to Parameter Configuration card */}
           <div className="left-column-inner">
-            <div className="section-header" style={{ display: 'flex', gap: '14px', marginBottom: '24px', alignItems: 'flex-start' }}>
-              <div style={{ paddingTop: '2px' }}>
-                <BarChart2 size={22} color="var(--accent-green)" />
+            <div className="config-header">
+              <div className="pt-2">
+                <BarChart2 size={22} className="text-accent-green" />
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                <div style={{ fontSize: '1.15rem', fontWeight: 600, color: 'var(--text-primary)', letterSpacing: '-0.3px', lineHeight: 1 }}>
+              <div className="config-title-container">
+                <div className="config-title">
                   Parameter Configuration
                 </div>
               </div>
@@ -304,7 +294,7 @@ export default function App() {
           <div className="bottom-action-bar">
             <div className="selection-summary">
               <div className="summary-count">
-                <span style={{ color: 'var(--accent-green)' }}>{selectedParams.size}</span> / {totalParams} Selected
+                <span className="text-accent-green">{selectedParams.size}</span> / {totalParams} Selected
               </div>
               
               {selectedParams.size > 0 && (
@@ -349,7 +339,7 @@ export default function App() {
           
           {/* Connection */}
           <div className="card control-panel">
-            <div className="section-title" style={{ fontSize: '0.9rem', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>CONNECTION</div>
+            <div className="section-label">CONNECTION</div>
             <div className="com-row">
               <select 
                 className="com-select" 
@@ -367,7 +357,7 @@ export default function App() {
 
             {appState === 'DISCONNECTED' ? (
               <>
-                <div className="alert alert-disconnected" style={{ cursor: 'pointer' }} onClick={handleConnect}>
+                <div className="alert alert-disconnected cursor-pointer" onClick={handleConnect}>
                   <div className="alert-dot dot-red"></div>
                   USB Disconnected
                 </div>
@@ -376,7 +366,7 @@ export default function App() {
                 </div>
               </>
             ) : (
-              <div className="alert alert-success" style={{ cursor: 'pointer' }} onClick={handleConnect}>
+              <div className="alert alert-success cursor-pointer" onClick={handleConnect}>
                 <div className="alert-dot dot-green"></div>
                 {appState === 'SYNCING' ? 'Syncing...' : 'USB Connected'}
               </div>
@@ -385,10 +375,10 @@ export default function App() {
 
           {/* Controls */}
           <div className="card control-panel">
-            <div className="section-title" style={{ fontSize: '0.9rem', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>CONTROLS</div>
+            <div className="section-label">CONTROLS</div>
             <div className="controls-stack">
               <button 
-                className={`btn-control ${appState === 'READY' || appState === 'LOGGING' ? 'active-start' : ''}`}
+                className="btn-control btn-start"
                 onClick={handleStartLog}
                 disabled={appState !== 'READY' && appState !== 'LOGGING'}
               >
@@ -396,7 +386,7 @@ export default function App() {
               </button>
               
               <button 
-                className={`btn-control ${appState === 'LOGGING' ? 'active-stop' : ''}`}
+                className="btn-control btn-stop"
                 onClick={handleStopLog}
                 disabled={appState !== 'LOGGING'}
               >
@@ -437,7 +427,7 @@ export default function App() {
             ) : (
               <div className="empty-message-state">
                 <div className="status-placeholder">
-                  <div className="alert-dot" style={{ backgroundColor: 'var(--text-secondary)', opacity: 0.3 }}></div>
+                  <div className="alert-dot status-dot-placeholder"></div>
                   <span>System Messages</span>
                 </div>
               </div>

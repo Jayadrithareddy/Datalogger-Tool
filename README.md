@@ -108,7 +108,6 @@ This generates the optimized bundle in the `dist` folder.
 ├── src/
 │   ├── App.tsx          # Main Application Component & State Logic
 │   ├── index.css        # Global Styles, Design Tokens & Layout CSS
-│   ├── App.css          # Additional localized styles
 │   └── main.tsx         # React DOM Entry Point
 ├── package.json         # Dependencies & Scripts
 ├── tsconfig.json        # TypeScript Configuration
