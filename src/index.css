@@ -503,20 +503,22 @@ h1, h2, h3, h4 { letter-spacing: -0.02em; }
 
 /* Alerts */
 .alert {
-  padding: 14px 16px;
+  padding: 18px 20px;
   border-radius: var(--radius-md);
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 1.05rem;
+  font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 12px;
-  transition: all 0.2s;
+  gap: 14px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 .alert-disconnected { background-color: var(--bg-input); border: 1px solid var(--border-color); color: var(--danger-text); }
 .alert-disconnected:hover { border-color: var(--danger-text); }
-.alert-error { background-color: var(--danger-bg); border: 1px solid transparent; color: var(--danger-text); }
-.alert-success { background-color: var(--accent-green-bg); border: 1px solid transparent; color: var(--accent-green); }
-.alert-info { background-color: var(--info-bg); border: 1px solid transparent; color: var(--info-text); }
+.alert-error { background-color: var(--danger-bg); border: 1px solid var(--danger-text); color: var(--danger-text); }
+.alert-success { background-color: var(--accent-green-bg); border: 1px solid var(--accent-green); color: var(--accent-green); }
+.alert-info { background-color: var(--info-bg); border: 1px solid var(--info-text); color: var(--info-text); }
 
 .alert-dot { width: 10px; height: 10px; border-radius: 50%; }
 .dot-red { background-color: var(--danger-text); box-shadow: 0 0 8px rgba(239,68,68,0.4); }
@@ -590,7 +592,10 @@ h1, h2, h3, h4 { letter-spacing: -0.02em; }
 .notification-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 4px;
 }
 
 .empty-message-state {

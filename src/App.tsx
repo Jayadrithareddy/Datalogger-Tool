@@ -417,9 +417,9 @@ export default function App() {
               <div className="notification-list">
                 {notifications.map(note => (
                   <div key={note.id} className={`alert alert-${note.type} animate-slide-in`}>
-                    {note.type === 'success' && <CheckCircle2 size={18} />}
-                    {note.type === 'error' && <AlertCircle size={18} />}
-                    {note.type === 'info' && <Activity size={18} />}
+                    {note.type === 'success' && <CheckCircle2 size={22} />}
+                    {note.type === 'error' && <AlertCircle size={22} />}
+                    {note.type === 'info' && <Activity size={22} />}
                     {note.message}
                   </div>
                 ))}
